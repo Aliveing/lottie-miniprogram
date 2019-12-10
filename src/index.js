@@ -1,8 +1,8 @@
 import {setup, g} from './adapter'
 const { window, document, navigator } = g
 
-; '__LOTTIE_CANVAS__'
-// ;import '../../node_modules/lottie-web/build/player/lottie_canvas.js'
+// ; '__LOTTIE_CANVAS__'
+;import '../../node_modules/lottie-web/build/player/lottie_canvas.js'
 
 function loadAnimation(options) {
   ['wrapper', 'container'].forEach(key => {
