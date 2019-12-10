@@ -1,6 +1,7 @@
+import Taro from '@tarojs/taro';
 import XHR from './XMLHttpRequest'
 
-function noop() {}
+function noop() { }
 
 function createImg(canvas) {
   if (typeof canvas.createImage === 'undefined') {
@@ -58,11 +59,11 @@ function wrapMethodFatory(ctx, methodName, wrappedMethod) {
   })
 }
 
-const systemInfo = wx.getSystemInfoSync()
+const systemInfo = Taro.getSystemInfoSync()
 const g = {}
 
 g.window = {
-  devicePixelRatio: systemInfo.pixelRatio,
+  devicePixelRatio: systemInfo.pixelRatio
 }
 g.document = g.window.document = {
   body: {},
@@ -75,7 +76,7 @@ g.navigator = g.window.navigator = {
 XMLHttpRequest = XHR
 
 export const setup = (canvas) => {
-  const {window, document} = g
+  const { window, document } = g
   window.requestAnimationFrame = canvas.requestAnimationFrame.bind(canvas)
   window.cancelAnimationFrame = canvas.cancelAnimationFrame.bind(canvas)
 
@@ -90,4 +91,4 @@ export const setup = (canvas) => {
   wrapMethodFatory(ctx, 'fill', wrapFill)
 }
 
-export {g}
+export { g }
